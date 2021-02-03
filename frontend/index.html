@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>rapidwolf</title>
+    <meta name="viewport" content="width=360,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="header">
       <h1>rapidwolf</h1>
       <p>walk through the internet</p>
+    </div>
+    <div id="search">
+      <div class="query"><form><input type="text" name="query" placeholder="enter what you want..."></form></div>
+      <div class="query-enter-msg">hit enter to search</div>
+    </div>
+    <div id="result">
+      <template><div class="item">
+        <div class="image"><img></div>
+        <div class="title"></div>
+        <div class="date"></div>
+      </div></template>
     </div>
   </body>
 </html>

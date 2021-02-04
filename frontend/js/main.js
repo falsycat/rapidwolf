@@ -19,8 +19,9 @@ window.addEventListener("DOMContentLoaded", () => {
       item: document.querySelector("#result template"),
     },
   };
-  let queue = [];
 
+  let queue = [];
+  let index = 0;
   let rw = new RapidWolf({
     onFetch: (item) => {
       queue.push(item);
@@ -37,10 +38,14 @@ window.addEventListener("DOMContentLoaded", () => {
       e.querySelector("a").href = item.url;
       e.querySelector(".title").innerText = underscore.unescape(item.title);
       e.querySelector(".date").innerText = ((d) => {
-        return `${d.getFullYear()}/${d.getMonth()}/${d.getDate()}`;
-      })(item.date);
-      elms.result.list.appendChild(e);
-      e = elms.result.list.lastChild;
+          return `${d.getFullYear()}/${d.getMonth()}/${d.getDate()}`;
+        })(item.date);
+
+      const list = elms.result.list;
+      const next = index < list.children.length? list.children[index]: null;
+      list.insertBefore(e, next);
+      e = list.children[index++];
+
       setTimeout(() => {
         e.classList.add("shown");
       }, 100);
@@ -60,5 +65,6 @@ window.addEventListener("DOMContentLoaded", () => {
   elms.query.form.addEventListener("submit", (e) => {
     e.preventDefault();
     rw.fetch(elms.query.input.value);
+    index = 0;
   });
 });

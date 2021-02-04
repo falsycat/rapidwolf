@@ -1,4 +1,5 @@
-const path = require("path");
+const path    = require("path");
+const webpack = require("webpack");
 
 const plugins = {
   htmlWebpack: require("html-webpack-plugin"),
@@ -15,6 +16,9 @@ module.exports = {
         template: path.resolve(__dirname, "frontend" , "index.html"),
         filename: "index.html",
         inject: "head",
+      }),
+      new webpack.DefinePlugin({
+        RAPIDWOLF_RAPIDAPI_KEY: JSON.stringify(process.env.RAPIDWOLF_RAPIDAPI_KEY),
       }),
   ],
   module: {
@@ -38,4 +42,5 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, "public", "static")
   },
+  devtool: "cheap-module-source-map",
 };

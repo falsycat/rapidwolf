@@ -1,11 +1,13 @@
 "use strict";
 
-import MockProvider from "./provider/mock.js";
+import MockProvider    from "./provider/mock.js";
+import YouTubeProvider from "./provider/youtube.js";
 
 export default class RapidWolf {
   constructor(param) {
     this.providers = [
-      new MockProvider(),
+      //new MockProvider(),
+      new YouTubeProvider(),
     ];
     this.onFetch = param.onFetch;
   }

@@ -8,8 +8,12 @@ export default class MockProvider extends BaseProvider {
     this.abortFetching();
     this.timer = setInterval(() => {
       callback(
-        this.createItem(
-          "test", "//google.com", "//thiscatdoesnotexist.com?"+Date.now(), Date.now()));
+        this.createItem({
+          title: "test",
+          url: "//google.com",
+          thumb: "//thiscatdoesnotexist.com?"+Date.now(),
+          date: new Date,
+        }));
     }, 1000);
   }
   abortFetching() {

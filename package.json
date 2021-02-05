@@ -3,12 +3,14 @@
   "description": "walk through internet rapidly",
   "dependencies": {
     "destyle.css": "^2.0.2",
+    "google-it": "^1.6.1",
     "underscore": "^1.12.0"
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^4.5.1",
+    "netlify-lambda": "^2.0.3",
     "npm-run-all": "^4.1.5",
     "sass": "^1.32.6",
     "sass-loader": "^10.1.1",
@@ -22,9 +24,11 @@
     "test:prod": "npm-run-all -p test:wp-prod",
     "test:wp": "webpack-dev-server --mode development --open",
     "test:wp-prod": "webpack-dev-server --mode production --open",
-    "build": "npm-run-all -p build:wp",
-    "build:prod": "npm-run-all -p build:wp-prod",
+    "test:lambda": "netlify-lambda serve backend",
+    "build": "npm-run-all -p build:wp -p build:lambda",
+    "build:prod": "npm-run-all -p build:wp-prod -p build:lambda",
     "build:wp": "webpack --mode development",
-    "build:wp-prod": "webpack --mode production"
+    "build:wp-prod": "webpack --mode production",
+    "build:lambda": "netlify-lambda build backend"
   }
 }

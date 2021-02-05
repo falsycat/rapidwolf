@@ -37,10 +37,16 @@ window.addEventListener("DOMContentLoaded", () => {
       e.querySelector("img").src = item.thumb;
       e.querySelector("a").href = item.url;
       e.querySelector(".title").innerText = underscore.unescape(item.title);
-      e.querySelector(".date").innerText = ((d) => {
-          return `${d.getFullYear()}/${d.getMonth()}/${d.getDate()}`;
-        })(item.date);
 
+      ((e) => {
+        const d = item.date;
+        if (d) {
+          e.innerText = `${d.getFullYear()}/${d.getMonth()}/${d.getDate()}`;
+        } else {
+          e.classList.add("hidden");
+        }
+      })(e.querySelector(".date"));
+      
       const list = elms.result.list;
       const next = index < list.children.length? list.children[index]: null;
       list.insertBefore(e, next);

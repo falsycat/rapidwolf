@@ -1,19 +1,20 @@
 /*
- * Google Data Provider
+ * Connpass Data Provider
  */
 
-import BaseProvider from "./base.js";
+import BaseProvider from './base.js';
 
-export default class GoogleProvider extends BaseProvider {
+export default class ConnpassProvider extends BaseProvider {
   constructor() {
-    super("Google", "");
+    super("Connpass", "");
     this.count = 0;
   }
   fetch(keyword, callback) {
+    if (this.downed) return;
     this.abortFetching();
-    
+
     const count = this.count;
-    fetch("/.netlify/functions/google?q="+keyword).
+    fetch("/.netlify/functions/connpass?q="+keyword).
       then((res) => res.json()).
       then((res) => {
         if (res.error) {
@@ -28,7 +29,7 @@ export default class GoogleProvider extends BaseProvider {
             title: i.title,
             url: i.url,
             thumb: "",
-            date: null,
+            date: new Date(i.date),
           }));
         }
       }).

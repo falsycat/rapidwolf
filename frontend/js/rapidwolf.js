@@ -1,15 +1,17 @@
 "use strict";
 
 import MockProvider    from "./provider/mock.js";
-import YouTubeProvider from "./provider/youtube.js";
+import ConnpassProvider from "./provider/connpass.js";
 import GoogleProvider  from "./provider/google.js";
+import YouTubeProvider from "./provider/youtube.js";
 
 export default class RapidWolf {
   constructor(param) {
     this.providers = [
       //new MockProvider(),
-      new YouTubeProvider(),
+      new ConnpassProvider(),
       new GoogleProvider(),
+      new YouTubeProvider(),
     ];
     this.onFetch = param.onFetch;
   }

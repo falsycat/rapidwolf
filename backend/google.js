@@ -12,7 +12,7 @@ exports.handler = (ev, ctx, cb) => {
         results.push({
           title: i.title,
           url: i.link,
-          thumb: "",
+          thumb: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
           date: null,
         });
       }

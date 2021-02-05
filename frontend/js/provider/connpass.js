@@ -28,7 +28,7 @@ export default class ConnpassProvider extends BaseProvider {
           callback(this.createItem({
             title: i.title,
             url: i.url,
-            thumb: "",
+            thumb: "https://connpass.com/static/img/api/connpass_logo_1.png",
             date: new Date(i.date),
           }));
         }

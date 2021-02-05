@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
           e.classList.add("hidden");
         }
       })(e.querySelector(".date"));
-      
+
       const list = elms.result.list;
       const next = index < list.children.length? list.children[index]: null;
       list.insertBefore(e, next);
@@ -56,11 +56,12 @@ window.addEventListener("DOMContentLoaded", () => {
         e.classList.add("shown");
       }, 100);
     };
-    for (let i = 0; i < 5; ++i) {
-      const item = queue.shift();
-      if (item) present(item);
+    if (queue.length > 0) {
+      const index = Math.floor(Math.random()*queue.length);
+      const item = queue.splice(index, 1);
+      present(item[0]);
     }
-  }, 500);
+  }, 50);
 
   elms.query.input.addEventListener("input", () => {
     elms.query.msg.classList.add("shown");

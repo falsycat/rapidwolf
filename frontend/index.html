@@ -1,27 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>rapidwolf</title>
-    <meta name="viewport" content="width=360,initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="header">
-      <h1>rapidwolf</h1>
-      <p>walk through the internet</p>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="ja">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>rapidwolf</title>
+  <meta name="author" content="falsycat">
+  <meta name="description" content="インターネットの様々な場所からランダムに情報を表示します">
+
+  <meta name="twitter:site" content="@falsycat">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:url" content="https://rapidwolf.netlify.app">
+  <meta property="og:title" content="rapidwolf">
+  <meta property="og:description" content="インターネットの様々な場所からランダムに情報を表示します">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Raleway:wght@400;500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="github-ribbon">
+    <a href="https://github.com/falsycat/rapidwolf" target="_blank"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+  </div>
+  <div id="header">
+    <h1>rapidwolf</h1>
+    <p>walk through the internet</p>
+  </div>
+  <div id="search">
+    <div class="query">
+      <form><input type="text" name="query" placeholder="enter keyword..."></form>
     </div>
-    <div id="search">
-      <div class="query"><form><input type="text" name="query" placeholder="enter what you want..."></form></div>
-      <div class="query-enter-msg">hit enter to search</div>
-    </div>
-    <div id="result">
-      <template><a class="item" target="_blank">
+    <div class="query-enter-msg">press enter to search</div>
+    <p>インターネット上の様々な場所からランダムに情報を表示します</p>
+  </div>
+  <div id="result">
+    <template><a class="item" target="_blank">
         <div class="image"><img onerror="javascript:void(0)"></div>
         <div class="title"></div>
         <div class="date"></div>
       </a></template>
-    </div>
-  </body>
+  </div>
+  <div id="footer">
+    <div class="license">developed by <a href="https://falsy.cat/" target="_blank">falsycat</a> under <a href="http://wtfpl.net" target="_blank">WTFPL</a></div>
+    <div class="ad"><iframe data-aa="1566253" src="//acceptable.a-ads.com/1566253" scrolling="no" style="border:0px; padding:0; width:100%; height:100%; overflow:hidden" allowtransparency="true"></iframe></div>
+  </div>
+</body>
+
 </html>

@@ -5,6 +5,12 @@ html {
 body {
   min-height: 100vh;
 }
+#github-ribbon {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
 #header {
   text-align: center;
   padding-top: calc(50vh - 8rem);
@@ -44,5 +50,29 @@ body {
       opacity: 1;
       visibility: visible;
     }
+  }
+  p {
+    text-align: center;
+    margin: 1rem;
+  }
+}
+#footer {
+  margin: 1rem;
+
+  .license {
+    font-size: .6rem;
+    color: gray;
+    letter-spacing: .1rem;
+    text-align: center;
+    margin: .5rem;
+    a {
+      text-decoration: underline;
+    }
+  }
+  .ad {
+    width: 100%;
+    max-width: 40rem;
+    height: 4rem;
+    margin: 0 auto;
   }
 }

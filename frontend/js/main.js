@@ -72,9 +72,12 @@ window.addEventListener("DOMContentLoaded", () => {
   elms.query.form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (last_keyword !== elms.query.input.value) {
+      elms.query.input.blur();
       rw.fetch(elms.query.input.value);
       last_item = elms.result.item;
       last_keyword = elms.query.input.value;
     }
   });
+
+  elms.query.input.focus();
 });

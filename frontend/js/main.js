@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   let queue = [];
-  let index = 0;
+  let last_item = elms.result.item;
   let rw = new RapidWolf({
     onFetch: (item) => {
       queue.push(item);
@@ -47,11 +47,9 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       })(e.querySelector(".date"));
 
-      const list = elms.result.list;
-      const next = index < list.children.length? list.children[index]: null;
-      list.insertBefore(e, next);
-      e = list.children[index++];
-
+      elms.result.list.insertBefore(e, last_item.nextSibling);
+      e = last_item = last_item.nextSibling;
+      
       setTimeout(() => {
         e.classList.add("shown");
       }, 100);
@@ -69,9 +67,14 @@ window.addEventListener("DOMContentLoaded", () => {
       elms.query.msg.classList.remove("shown")
     }, 1000);
   });
+
+  let last_keyword = null;
   elms.query.form.addEventListener("submit", (e) => {
     e.preventDefault();
-    rw.fetch(elms.query.input.value);
-    index = 0;
+    if (last_keyword !== elms.query.input.value) {
+      rw.fetch(elms.query.input.value);
+      last_item = elms.result.item;
+      last_keyword = elms.query.input.value;
+    }
   });
 });

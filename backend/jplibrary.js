@@ -20,7 +20,7 @@ exports.handler = (ev, ctx, cb) => {
           res.rss.channel.item?
             res.rss.channel.item: [];
 
-        const results = res.rss.channel.item.map((i) => {
+        const results = items.map((i) => {
           const isbn =
             (i["dc:identifier"] || []).
             find((s) => (s+"").length === 10);  /* ISBN consists of 10 digits */

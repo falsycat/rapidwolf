@@ -24,6 +24,11 @@ export default class RapidWolf {
         endpoint: "jplibrary",
         default_thumb: null,
       }),
+      new WrappedProvider({
+        name: "Wikipedia",
+        endpoint: "wikipedia",
+        default_thumb: null,
+      }),
     ];
     this.onFetch = param.onFetch;
   }

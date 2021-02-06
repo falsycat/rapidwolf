@@ -5,7 +5,8 @@
 import fetch from "node-fetch";
 
 exports.handler = (ev, ctx, cb) => {
-  fetch(`https://connpass.com/api/v1/event/?keyword=${ev.queryStringParameters.q}&count=50`, {
+  const keyword = ev.queryStringParameters.q || "";
+  fetch(`https://connpass.com/api/v1/event/?keyword=${encodeURI(keyword)}&count=50`, {
         "method": "GET",
       }).
       then((res) => res.json()).
@@ -24,6 +25,7 @@ exports.handler = (ev, ctx, cb) => {
         });
       }).
       catch((err) => {
+        console.error(err);
         cb(null, {
           statusCode: 418,
           body: JSON.stringify({

@@ -15,7 +15,7 @@ export default class YouTubeProvider extends BaseProvider {
     this.abortFetching();
 
     const count = this.count;
-    fetch(`https://youtube-v31.p.rapidapi.com/search?q=${keyword}&part=snippet%2Cid&regionCode=JP&maxResults=50`, {
+    fetch(`https://youtube-v31.p.rapidapi.com/search?q=${encodeURI(keyword)}&part=snippet%2Cid&regionCode=JP&maxResults=50`, {
       "method": "GET",
       "headers": {
         "x-rapidapi-key": RAPIDWOLF_RAPIDAPI_KEY,

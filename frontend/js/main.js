@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
         elms.header.classList.add("minimized");
       }
       let e = document.importNode(elms.result.item.content, true);
-      e.querySelector("img").src = item.thumb;
+      e.querySelector("img").src = item.thumb || "";
       e.querySelector("a").href = item.url;
       e.querySelector(".title").innerText = underscore.unescape(item.title);
 
